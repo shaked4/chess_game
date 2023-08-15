@@ -12,10 +12,11 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class Main {
 
+    static Board board = new Board();
+
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         frame.setBounds(10, 10, 800, 830);
-        Piece[] pieces = new Piece[32];
         JPanel pn = new JPanel() {
             @Override
             public void paint(Graphics g) {
@@ -33,18 +34,8 @@ public class Main {
                     white = !white;
                 }
                 try {
-
-                    pieces[0] = new Pawn(0, 6, Piece.COLOR.WHITE);
-                    pieces[1] = new Knight(1, 0, Piece.COLOR.BLACK);
-                    pieces[2] = new Pawn(0, 4, Piece.COLOR.WHITE);
-                    pieces[3] = new Knight(1, 5, Piece.COLOR.BLACK);
-                    pieces[4] = new Pawn(5, 6, Piece.COLOR.WHITE);
-                    pieces[5] = new Knight(6, 5, Piece.COLOR.BLACK);
-                    pieces[6] = new Pawn(3, 1, Piece.COLOR.BLACK);
-
-                    for (Piece piece :
-                            pieces) {
-                        if (piece == null)  {
+                    for (Piece piece : board.pieces) {
+                        if (piece == null) {
                             continue;
                         }
                         g.drawImage(piece.getImage(), piece.square.getX() * 100, piece.square.getY() * 100, null);
@@ -68,8 +59,8 @@ public class Main {
                 y = y / 100;
                 ArrayList<Square> possibleSquares = new ArrayList<>();
                 for (int i = 0; i < 32; i++) {
-                    if (pieces[i] != null && pieces[i].square.getX() == x && pieces[i].square.getY() == y) {
-                        possibleSquares = pieces[i].getPossibleSquares(pieces);
+                    if (board.pieces.get(i) != null && board.pieces.get(i).square.getX() == x && board.pieces.get(i).square.getY() == y) {
+                        possibleSquares = board.pieces.get(i).getPossibleSquares(board.pieces);
                         break;
                     }
                 }

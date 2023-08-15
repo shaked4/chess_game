@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Knight extends Piece {
 
@@ -12,7 +13,7 @@ public class Knight extends Piece {
     }
 
     @Override
-    public ArrayList<Square> getPossibleSquares(Piece[] t) {
+    public ArrayList<Square> getPossibleSquares(List<Piece> t) {
         return new ArrayList<Square>();
     }
 

@@ -49,8 +49,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public ArrayList<Square> getPossibleSquares(Piece[] t) {
-        List<Piece> pieces = Arrays.asList(t);
+    public ArrayList<Square> getPossibleSquares(List<Piece> pieces) {
         ArrayList<Square> options = new ArrayList<>();
 
         if (!isSquareTaken(forwardSquare(), pieces)) {

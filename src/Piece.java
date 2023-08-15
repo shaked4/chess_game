@@ -53,7 +53,7 @@ public abstract class Piece {
         return null;
     }
 
-    public abstract ArrayList<Square> getPossibleSquares(Piece[] t);
+    public abstract ArrayList<Square> getPossibleSquares(List<Piece> t);
 
     abstract BufferedImage getImage() throws IOException;
 }

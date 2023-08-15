@@ -1,6 +1,7 @@
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Bishop extends Piece {
     public Bishop(int x, int y, COLOR color) {
@@ -9,7 +10,7 @@ public class Bishop extends Piece {
 
 
     @Override
-    public ArrayList<Square> getPossibleSquares(Piece[] t) {
+    public ArrayList<Square> getPossibleSquares(List<Piece> t) {
         return null;
     }
 

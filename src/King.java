@@ -1,6 +1,7 @@
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class King extends Piece {
 
@@ -16,7 +17,7 @@ public class King extends Piece {
     }
 
     @Override
-    public ArrayList<Square> getPossibleSquares(Piece[] t) {
+    public ArrayList<Square> getPossibleSquares(List<Piece> t) {
         return null;
     }
 
