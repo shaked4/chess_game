@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Board {
     ArrayList<Piece> pieces = new ArrayList<>();
+    ArrayList<Square> circles = new ArrayList<>();
 
     public Board() {
         init();
@@ -15,5 +16,13 @@ public class Board {
         pieces.add(new Pawn(5, 6, Piece.COLOR.WHITE));
         pieces.add(new Knight(6, 5, Piece.COLOR.BLACK));
         pieces.add(new Pawn(3, 1, Piece.COLOR.BLACK));
+    }
+
+    void addCircle(Square sq) {
+        circles.add(sq);
+    }
+
+    void removeAllCircles() {
+        circles.clear();
     }
 }

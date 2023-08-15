@@ -43,6 +43,11 @@ public class Main {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+
+                for (Square square : board.circles) {
+                    g.setColor(new Color(130, 150, 105));
+                    g.fillOval(square.getX() * 100 + 33, square.getY() * 100 + 33, 34, 34);
+                }
             }
         };
 
@@ -52,27 +57,28 @@ public class Main {
         frame.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                // When mouse clicked, remove all previous circles from the board
+                board.removeAllCircles();
 
                 int x = e.getX();
                 int y = e.getY() - 40;
                 x = x / 100;
                 y = y / 100;
                 ArrayList<Square> possibleSquares = new ArrayList<>();
-                for (int i = 0; i < 32; i++) {
-                    if (board.pieces.get(i) != null && board.pieces.get(i).square.getX() == x && board.pieces.get(i).square.getY() == y) {
-                        possibleSquares = board.pieces.get(i).getPossibleSquares(board.pieces);
+                for (Piece piece :
+                        board.pieces) {
+                    if (piece.square.getX() == x && piece.square.getY() == y) {
+                        possibleSquares = piece.getPossibleSquares(board.pieces);
                         break;
                     }
                 }
+
                 if (!possibleSquares.isEmpty()) {
-
-                    Graphics g = pn.getGraphics();
                     for (Square square : possibleSquares) {
-                        g.setColor(new Color(130, 150, 105));
-                        g.fillOval(square.getX() * 100 + 33, square.getY() * 100 + 33, 34, 34);
+                        board.addCircle(square);
                     }
-
                 }
+                pn.repaint();
             }
 
             @Override
