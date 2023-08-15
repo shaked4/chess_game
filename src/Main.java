@@ -93,7 +93,7 @@ public class Main {
                         System.out.println("in possible loop");
                         BufferedImage bufferedImage;
                         try {
-                            bufferedImage = ImageIO.read(new File("green_circle.png"));
+                            bufferedImage = ImageIO.read(new File("img/green_circle.png"));
                         } catch (IOException ex) {
                             throw new RuntimeException(ex);
                         }

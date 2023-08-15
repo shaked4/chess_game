@@ -14,6 +14,6 @@ public class Knight extends Piece {
 
     @Override
     String getImagePath() {
-        return color == COLOR.WHITE ? "" : "black_knight05.png";
+        return color == COLOR.WHITE ? "" : "img/black_knight.png";
     }
 }
