@@ -78,21 +78,17 @@ public class Main {
 
                 int x = e.getX();
                 int y = e.getY() - 40;
-                System.out.printf("x: %d, y: %d%n", x, y);
-                System.out.println("cell is: " + "x:" + x / 100 + " y:" + y / 100);
                 x = x / 100;
                 y = y / 100;
                 ArrayList<Square> possibleSquares = new ArrayList<>();
                 for (int i = 0; i < 32; i++) {
                     if (pieces[i] != null && pieces[i].square.getX() == x && pieces[i].square.getY() == y) {
                         possibleSquares = pieces[i].getPossibleSquares(pieces);
-                        System.out.println("in on white pawn");
                         break;
                     }
                 }
                 if (!possibleSquares.isEmpty()) {
 
-                    System.out.println("in on possible squares");
                     Graphics g = pn.getGraphics();
                     for (Square square : possibleSquares) {
                         g.setColor(new Color(130,150,105));
