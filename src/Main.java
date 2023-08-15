@@ -71,13 +71,12 @@ public class Main {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                System.out.println("hello");
-                if ((e.getX() > 0 && e.getX() < 100) && (e.getY() > 600 && e.getY() < 700)) {
-                    System.out.println("working");
-                }
-                System.out.println("cell is: " + "x:" + e.getX() / 100 + " y:" + e.getY() / 100);
-                int x = e.getX() / 100;
-                int y = e.getY() / 100;
+                int x = e.getX();
+                int y = e.getY() - 40;
+                System.out.printf("x: %d, y: %d%n", x, y);
+                System.out.println("cell is: " + "x:" + x / 100 + " y:" + y / 100);
+                x = x / 100;
+                y = y / 100;
                 ArrayList<Square> possibleSquares = new ArrayList<>();
                 for (int i = 0; i < 32; i++) {
                     if (pieces[i] != null && pieces[i].square.getX() == x && pieces[i].square.getY() == y) {
