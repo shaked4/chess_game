@@ -37,7 +37,7 @@ public class Main {
 
                     pieces[0] = new Pawn(0, 6, Piece.COLOR.WHITE);
                     bufferedImage = ImageIO.read(new File(pieces[0].getImagePath()));
-                    g.drawImage(bufferedImage, 10, 610, null);
+                    g.drawImage(bufferedImage, 0, 600, null);
 
                     pieces[1] = new Knight(1, 0, Piece.COLOR.BLACK);
                     bufferedImage = ImageIO.read(new File(pieces[1].getImagePath()));
@@ -45,7 +45,7 @@ public class Main {
 
                     pieces[2] = new Pawn(0, 4, Piece.COLOR.WHITE);
                     bufferedImage = ImageIO.read(new File(pieces[2].getImagePath()));
-                    g.drawImage(bufferedImage, 0, 410, null);
+                    g.drawImage(bufferedImage, 0, 400, null);
 
                     pieces[3] = new Knight(1, 5, Piece.COLOR.BLACK);
                     bufferedImage = ImageIO.read(new File(pieces[3].getImagePath()));
@@ -53,7 +53,7 @@ public class Main {
 
                     pieces[4] = new Pawn(5, 6, Piece.COLOR.WHITE);
                     bufferedImage = ImageIO.read(new File(pieces[4].getImagePath()));
-                    g.drawImage(bufferedImage, 510, 610, null);
+                    g.drawImage(bufferedImage, 500, 600, null);
 
                     pieces[5] = new Knight(6, 5, Piece.COLOR.BLACK);
                     bufferedImage = ImageIO.read(new File(pieces[5].getImagePath()));

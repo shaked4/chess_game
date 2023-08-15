@@ -74,6 +74,6 @@ public class Pawn extends Piece {
 
     @Override
     String getImagePath() {
-        return color == COLOR.WHITE ? "white_pawn2.png" : "";
+        return color == COLOR.WHITE ? "img/white_pawn.png" : "";
     }
 }
