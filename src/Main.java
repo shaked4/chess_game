@@ -32,7 +32,6 @@ public class Main {
                     }
                     white = !white;
                 }
-                BufferedImage bufferedImage;
                 try {
 
                     pieces[0] = new Pawn(0, 6, Piece.COLOR.WHITE);
