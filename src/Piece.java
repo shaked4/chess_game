@@ -1,3 +1,5 @@
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,5 +55,5 @@ public abstract class Piece {
 
     public abstract ArrayList<Square> getPossibleSquares(Piece[] t);
 
-    abstract String getImagePath();
+    abstract BufferedImage getImage() throws IOException;
 }

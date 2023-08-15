@@ -1,3 +1,7 @@
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -73,7 +77,8 @@ public class Pawn extends Piece {
     }
 
     @Override
-    String getImagePath() {
-        return color == COLOR.WHITE ? "img/white_pawn.png" : "img/black_pawn.png";
+    BufferedImage getImage() throws IOException {
+        String path = color == COLOR.WHITE ? "img/white_pawn.png" : "img/black_pawn.png";
+        return ImageIO.read(new File(path));
     }
 }

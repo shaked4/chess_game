@@ -36,33 +36,20 @@ public class Main {
                 try {
 
                     pieces[0] = new Pawn(0, 6, Piece.COLOR.WHITE);
-                    bufferedImage = ImageIO.read(new File(pieces[0].getImagePath()));
-                    g.drawImage(bufferedImage, 0, 600, null);
-
                     pieces[1] = new Knight(1, 0, Piece.COLOR.BLACK);
-                    bufferedImage = ImageIO.read(new File(pieces[1].getImagePath()));
-                    g.drawImage(bufferedImage, 100, 0, null);
-
                     pieces[2] = new Pawn(0, 4, Piece.COLOR.WHITE);
-                    bufferedImage = ImageIO.read(new File(pieces[2].getImagePath()));
-                    g.drawImage(bufferedImage, 0, 400, null);
-
                     pieces[3] = new Knight(1, 5, Piece.COLOR.BLACK);
-                    bufferedImage = ImageIO.read(new File(pieces[3].getImagePath()));
-                    g.drawImage(bufferedImage, 100, 500, null);
-
                     pieces[4] = new Pawn(5, 6, Piece.COLOR.WHITE);
-                    bufferedImage = ImageIO.read(new File(pieces[4].getImagePath()));
-                    g.drawImage(bufferedImage, 500, 600, null);
-
                     pieces[5] = new Knight(6, 5, Piece.COLOR.BLACK);
-                    bufferedImage = ImageIO.read(new File(pieces[5].getImagePath()));
-                    g.drawImage(bufferedImage, 600, 500, null);
-
                     pieces[6] = new Pawn(3, 1, Piece.COLOR.BLACK);
-                    bufferedImage = ImageIO.read(new File(pieces[6].getImagePath()));
-                    g.drawImage(bufferedImage, 300, 100, null);
 
+                    for (Piece piece :
+                            pieces) {
+                        if (piece == null)  {
+                            continue;
+                        }
+                        g.drawImage(piece.getImage(), piece.square.getX() * 100, piece.square.getY() * 100, null);
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

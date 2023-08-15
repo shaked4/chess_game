@@ -1,15 +1,18 @@
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class King extends Piece{
+public class King extends Piece {
 
-    boolean moved=false;
-    public King( int x, int y, COLOR color) {
+    boolean moved = false;
+
+    public King(int x, int y, COLOR color) {
         super(TYPE.KING, x, y, color);
     }
 
     public void onMoved() {
         super.onMoved();
-        moved=true;
+        moved = true;
     }
 
     @Override
@@ -18,9 +21,7 @@ public class King extends Piece{
     }
 
     @Override
-    String getImagePath() {
+    BufferedImage getImage() throws IOException {
         throw new UnsupportedOperationException();
     }
-
-
 }

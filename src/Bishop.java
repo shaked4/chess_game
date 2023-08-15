@@ -1,3 +1,5 @@
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Bishop extends Piece {
@@ -12,7 +14,7 @@ public class Bishop extends Piece {
     }
 
     @Override
-    String getImagePath() {
+    BufferedImage getImage() throws IOException {
         throw new UnsupportedOperationException();
     }
 }
