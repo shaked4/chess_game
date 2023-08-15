@@ -35,14 +35,22 @@ public abstract class Piece {
 
      }
 
-     public abstract ArrayList<Square> getPossibleSquares(Piece[] t);
+    protected boolean isSquareTaken(Square square, List<Piece> pieces) {
+        return getPiece(square, pieces) != null;
+    }
 
+    protected Piece getPiece(Square square, List<Piece> pieces) {
+         if (square == null) {
+             return null;
+         }
 
+        for (Piece piece: pieces) {
+            if (piece != null && piece.alive && piece.square.isEqual(square)) {
+                return piece;
+            }
+        }
+        return null;
+    }
 
-     public Square getSquare() {
-          return square;
-     }
-     public COLOR getColor(){
-          return this.color;
-     }
+    public abstract ArrayList<Square> getPossibleSquares(Piece[] t);
 }

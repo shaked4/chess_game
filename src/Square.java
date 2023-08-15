@@ -14,11 +14,7 @@ public class Square {
         return y;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+    public boolean isEqual(Square square) {
+        return this.x == square.x && this.y == square.y;
     }
 }
