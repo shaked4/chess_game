@@ -88,18 +88,10 @@ public class Main {
                 if (!possibleSquares.isEmpty()) {
 
                     System.out.println("in on possible squares");
+                    Graphics g = pn.getGraphics();
                     for (Square square : possibleSquares) {
-                        System.out.println("in possible loop");
-                        BufferedImage bufferedImage;
-                        try {
-                            bufferedImage = ImageIO.read(new File("img/green_circle.png"));
-                        } catch (IOException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                        Image image = bufferedImage.getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-                        System.out.println(y * 100);
-                        pn.getGraphics().drawImage(image, square.getX() * 100 + 20, square.getY() * 100, null);
-                    }
+                        g.setColor(new Color(130,150,105));
+                        g.fillOval(square.getX()*100+33, square.getY()*100+33, 34, 34);}
 
                 }
             }
