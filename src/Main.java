@@ -51,7 +51,7 @@ public class Main {
                     g.drawImage(bufferedImage, 100, 510, null);
 
                     bufferedImage = ImageIO.read(new File("white_pawn2.png"));
-                    pieces[4]=new Knight(5,6,Piece.COLOR.WHITE);
+                    pieces[4]=new Pawn(5,6,Piece.COLOR.WHITE);
                     g.drawImage(bufferedImage, 510, 610, null);
 
                     bufferedImage = ImageIO.read(new File("black_knight05.png"));

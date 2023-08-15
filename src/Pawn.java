@@ -29,12 +29,11 @@ boolean moved=false;
                 for (int i=0 ;i<32; i++) {
                     if (moved == false)
                         if (t[i] != null && t[i].getSquare().getX() == this.square.getX() && t[i].getSquare().getY() == this.square.getY() - 2) {
-                            temp.setX(this.square.getX());
-                            temp.setY(this.square.getY()-2);
-                            options.remove(temp);
-                            Predicate<Square> condition = square.x-> square.x=this.square.getX() && square.y-> square.y=this.square.getY();
+//                            temp.setX(this.square.getX());
+//                            temp.setY(this.square.getY()-2);
+                            Predicate<Square> condition = square -> square.x==this.square.getX() &&  square.y==this.square.getY();
                             options.removeIf(condition);
-
+//
 
 
                         }   ///options.remove(new Square(this.square.getX(),this.square.getY()-2));
@@ -42,7 +41,7 @@ boolean moved=false;
                     if (t[i]!=null && t[i].getSquare().getX() == this.square.getX() && t[i].getSquare().getY() == this.square.getY()-1 )
                         options.remove(new Square(this.square.getX(),this.square.getY()-1));
 
-                    if ( t[i]!=null && this.square.getX()>0 && t[i].getColor()==COLOR.BLACK && t[i].getSquare().getX() - 1 == this.square.getX() && t[i].getSquare().getY()== this.square.getY() -1 )
+                    if ( t[i]!=null && this.square.getX()>0 && t[i].getColor()==COLOR.BLACK && t[i].getSquare().getX() + 1 == this.square.getX() && t[i].getSquare().getY()== this.square.getY() -1 )
                         options.add(new Square(this.square.getX()-1,this.square.getY()-1));
 
                     if ( t[i]!=null && this.square.getX()<7 && t[i].getColor()==COLOR.BLACK && t[i].getSquare().getX() -1 == this.square.getX() && t[i].getSquare().getY() == this.square.getY()-1)
