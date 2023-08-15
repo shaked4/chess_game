@@ -17,5 +17,10 @@ public class King extends Piece{
         return null;
     }
 
+    @Override
+    String getImagePath() {
+        throw new UnsupportedOperationException();
+    }
+
 
 }

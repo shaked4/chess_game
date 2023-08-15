@@ -12,4 +12,9 @@ public class Queen extends Piece {
     public ArrayList<Square> getPossibleSquares(Piece[] t) {
         return null;
     }
+
+    @Override
+    String getImagePath() {
+        throw new UnsupportedOperationException();
+    }
 }

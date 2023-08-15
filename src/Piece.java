@@ -3,7 +3,7 @@ import java.util.List;
 
 public abstract class Piece {
 
-     public enum COLOR {
+    public enum COLOR {
           BLACK,
           WHITE
      }
@@ -21,7 +21,6 @@ public abstract class Piece {
      TYPE type;
      Square square;
      boolean alive=true;
-
      COLOR color;
 
 
@@ -53,4 +52,5 @@ public abstract class Piece {
     }
 
     public abstract ArrayList<Square> getPossibleSquares(Piece[] t);
+     abstract String getImagePath();
 }

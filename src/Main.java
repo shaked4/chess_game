@@ -34,28 +34,29 @@ public class Main {
                 }
                 BufferedImage bufferedImage;
                 try {
-                    bufferedImage = ImageIO.read(new File("white_pawn2.png"));
+
                     pieces[0] = new Pawn(0, 6, Piece.COLOR.WHITE);
+                    bufferedImage = ImageIO.read(new File(pieces[0].getImagePath()));
                     g.drawImage(bufferedImage, 10, 610, null);
 
-                    bufferedImage = ImageIO.read(new File("black_knight05.png"));
                     pieces[1] = new Knight(1, 0, Piece.COLOR.BLACK);
+                    bufferedImage = ImageIO.read(new File(pieces[1].getImagePath()));
                     g.drawImage(bufferedImage, 100, 0, null);
 
-                    bufferedImage = ImageIO.read(new File("white_pawn2.png"));
-                    pieces[2] = new Knight(0, 4, Piece.COLOR.WHITE);
+                    pieces[2] = new Pawn(0, 4, Piece.COLOR.WHITE);
+                    bufferedImage = ImageIO.read(new File(pieces[2].getImagePath()));
                     g.drawImage(bufferedImage, 0, 410, null);
 
-                    bufferedImage = ImageIO.read(new File("black_knight05.png"));
                     pieces[3] = new Knight(1, 5, Piece.COLOR.BLACK);
+                    bufferedImage = ImageIO.read(new File(pieces[3].getImagePath()));
                     g.drawImage(bufferedImage, 100, 510, null);
 
-                    bufferedImage = ImageIO.read(new File("white_pawn2.png"));
                     pieces[4] = new Pawn(5, 6, Piece.COLOR.WHITE);
+                    bufferedImage = ImageIO.read(new File(pieces[4].getImagePath()));
                     g.drawImage(bufferedImage, 510, 610, null);
 
-                    bufferedImage = ImageIO.read(new File("black_knight05.png"));
                     pieces[5] = new Knight(6, 5, Piece.COLOR.BLACK);
+                    bufferedImage = ImageIO.read(new File(pieces[5].getImagePath()));
                     g.drawImage(bufferedImage, 610, 510, null);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
