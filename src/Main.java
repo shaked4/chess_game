@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class Main {
 
@@ -63,7 +64,7 @@ public class Main {
         };
 
         frame.add(pn);
-        frame.setDefaultCloseOperation(3);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.addMouseListener(new MouseListener() {
             @Override
@@ -76,20 +77,20 @@ public class Main {
                 System.out.println("cell is: " + "x:" + e.getX() / 100 + " y:" + e.getY() / 100);
                 int x = e.getX() / 100;
                 int y = e.getY() / 100;
-                ArrayList<Square> PossibleSquares = new ArrayList<>();
+                ArrayList<Square> possibleSquares = new ArrayList<>();
                 for (int i = 0; i < 32; i++) {
                     if (pieces[i] != null && pieces[i].square.getX() == x && pieces[i].square.getY() == y) {
-                        PossibleSquares = pieces[i].getPossibleSquares(pieces);
+                        possibleSquares = pieces[i].getPossibleSquares(pieces);
                         System.out.println("in on white pawn");
                         break;
                     }
                 }
-                if (!PossibleSquares.isEmpty()) {
+                if (!possibleSquares.isEmpty()) {
 
                     System.out.println("in on possible squares");
-                    for (int i = 0; i < PossibleSquares.size(); i++) {
+                    for (Square square : possibleSquares) {
                         System.out.println("in possible loop");
-                        BufferedImage bufferedImage = null;
+                        BufferedImage bufferedImage;
                         try {
                             bufferedImage = ImageIO.read(new File("green_circle.png"));
                         } catch (IOException ex) {
@@ -97,7 +98,7 @@ public class Main {
                         }
                         Image image = bufferedImage.getScaledInstance(50, 50, Image.SCALE_DEFAULT);
                         System.out.println(y * 100);
-                        pn.getGraphics().drawImage(image, PossibleSquares.get(i).getX() * 100 + 20, PossibleSquares.get(i).getY() * 100, null);
+                        pn.getGraphics().drawImage(image, square.getX() * 100 + 20, square.getY() * 100, null);
                     }
 
                 }
