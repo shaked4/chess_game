@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Knight extends Piece {
 
 
-    public Knight( int x, int y, COLOR color) {
+    public Knight(int x, int y, COLOR color) {
         super(TYPE.KNIGHT, x, y, color);
     }
 

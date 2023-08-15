@@ -7,7 +7,6 @@ public class Queen extends Piece {
     }
 
 
-
     @Override
     public ArrayList<Square> getPossibleSquares(Piece[] t) {
         return null;

@@ -59,9 +59,9 @@ public class Main {
                     bufferedImage = ImageIO.read(new File(pieces[5].getImagePath()));
                     g.drawImage(bufferedImage, 600, 500, null);
 
-                    pieces[6]=new Pawn(3,1, Piece.COLOR.BLACK);
-                    bufferedImage=ImageIO.read(new File (pieces[6].getImagePath()));
-                    g.drawImage(bufferedImage,300,100,null);
+                    pieces[6] = new Pawn(3, 1, Piece.COLOR.BLACK);
+                    bufferedImage = ImageIO.read(new File(pieces[6].getImagePath()));
+                    g.drawImage(bufferedImage, 300, 100, null);
 
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -91,23 +91,28 @@ public class Main {
 
                     Graphics g = pn.getGraphics();
                     for (Square square : possibleSquares) {
-                        g.setColor(new Color(130,150,105));
-                        g.fillOval(square.getX()*100+33, square.getY()*100+33, 34, 34);}
+                        g.setColor(new Color(130, 150, 105));
+                        g.fillOval(square.getX() * 100 + 33, square.getY() * 100 + 33, 34, 34);
+                    }
 
                 }
             }
 
             @Override
-            public void mousePressed(MouseEvent e) {}
+            public void mousePressed(MouseEvent e) {
+            }
 
             @Override
-            public void mouseReleased(MouseEvent e) {}
+            public void mouseReleased(MouseEvent e) {
+            }
 
             @Override
-            public void mouseEntered(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {
+            }
 
             @Override
-            public void mouseExited(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {
+            }
         });
     }
 }

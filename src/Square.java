@@ -7,10 +7,10 @@ public class Square {
     }
 
     public int getX() {
-
         return x;
-}
-    public int getY(){
+    }
+
+    public int getY() {
         return y;
     }
 
