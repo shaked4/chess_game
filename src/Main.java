@@ -58,6 +58,11 @@ public class Main {
                     pieces[5] = new Knight(6, 5, Piece.COLOR.BLACK);
                     bufferedImage = ImageIO.read(new File(pieces[5].getImagePath()));
                     g.drawImage(bufferedImage, 600, 500, null);
+
+                    pieces[6]=new Pawn(3,1, Piece.COLOR.BLACK);
+                    bufferedImage=ImageIO.read(new File (pieces[6].getImagePath()));
+                    g.drawImage(bufferedImage,300,100,null);
+
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
