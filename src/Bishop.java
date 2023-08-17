@@ -13,7 +13,27 @@ public class Bishop extends Piece {
 
     @Override
     public ArrayList<Square> getPossibleSquares(List<Piece> t) {
-        return null;
+        ArrayList<Square> options = new ArrayList<>();
+int x= square.x;
+int y= square.y;
+        int[][] nextMove={{1,-1},{1,1},{-1,1},{-1,-1}};
+        for (int i=0; i<4;i++)
+        {
+            square.x=x;
+            square.y=y;
+            Square nextSquare=new Square(square.x+nextMove[i][0], square.y+nextMove[i][1] );
+            while (!isSquareTakenSameColor(nextSquare,t,color) && isInBoundaries(square, nextMove[i][0], nextMove[i][1]))
+            {
+                options.add(nextSquare);
+                square.x= square.x+nextMove[i][0];
+                square.y=square.y+nextMove[i][1];
+                nextSquare=new Square(square.x+nextMove[i][0], square.y+nextMove[i][1] );
+            }
+
+        }
+        square.x=x;
+        square.y=y;
+        return options;
     }
 
     @Override
