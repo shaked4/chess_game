@@ -35,11 +35,18 @@ public abstract class Piece {
     public void onMoved() {
 
     }
+    protected boolean isInBoundaries(Square square,int x,int y)
+    {
+        return square.getX()-x>-1 && square.getY()-y>-1;
 
+    }
     protected boolean isSquareTaken(Square square, List<Piece> pieces) {
         return getPiece(square, pieces) != null;
     }
 
+    protected boolean isSquareTakenSameColor(Square square, List<Piece> pieces,COLOR color) {
+        return getPiece(square, pieces) != null && getPiece(square,pieces).color==color;
+    }
     protected Piece getPiece(Square square, List<Piece> pieces) {
         if (square == null) {
             return null;

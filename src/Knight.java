@@ -13,7 +13,12 @@ public class Knight extends Piece {
     }
 
     @Override
-    public ArrayList<Square> getPossibleSquares(List<Piece> t) {
+    public ArrayList<Square> getPossibleSquares(List<Piece> pieces) {
+        ArrayList<Square> options = new ArrayList<>();
+
+        Square tempMove=new Square(square.getX()-1, square.getY()-2);
+        if (!isSquareTakenSameColor(tempMove,pieces,color))
+
         return new ArrayList<Square>();
     }
 

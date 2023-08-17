@@ -59,9 +59,8 @@ public class Main {
             public void mouseClicked(MouseEvent e) {
                 // When mouse clicked, remove all previous circles from the board
                 board.removeAllCircles();
-
-                int x = e.getX();
-                int y = e.getY() - 40;
+                int x = e.getX()-7;
+                int y = e.getY() - 30;
                 x = x / 100;
                 y = y / 100;
                 ArrayList<Square> possibleSquares = new ArrayList<>();
