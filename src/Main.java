@@ -50,7 +50,8 @@ public class Main {
                 }
             }
         };
-
+        int[][] temp={{-1,-2},{1,-2},{2,-1}};
+        ;
         frame.add(pn);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);

@@ -35,9 +35,9 @@ public abstract class Piece {
     public void onMoved() {
 
     }
-    protected boolean isInBoundaries(Square square,int x,int y)
+    public boolean isInBoundaries(Square square,int x,int y)
     {
-        return square.getX()-x>-1 && square.getY()-y>-1;
+        return square.getX()+x>-1 && square.getY()+y>-1 && square.getX()+x<8 && square.getY()+y<8;
 
     }
     protected boolean isSquareTaken(Square square, List<Piece> pieces) {

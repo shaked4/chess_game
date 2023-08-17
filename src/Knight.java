@@ -16,10 +16,17 @@ public class Knight extends Piece {
     public ArrayList<Square> getPossibleSquares(List<Piece> pieces) {
         ArrayList<Square> options = new ArrayList<>();
 
-        Square tempMove=new Square(square.getX()-1, square.getY()-2);
-        if (!isSquareTakenSameColor(tempMove,pieces,color))
+        int[][] temp={{-1,-2},{1,-2},{2,-1},{2,1},{1,2},{-1,2},{-2,1},{-2,-1}};
 
-        return new ArrayList<Square>();
+        for (int i=0; i< temp.length;i++) {
+            Square tempMove = new Square(square.getX() + temp[i][0], square.getY() + temp[i][1]);
+            if (!isSquareTakenSameColor(tempMove, pieces, color) && isInBoundaries(square, temp[i][0], temp[i][1]))
+                options.add(tempMove);
+
+        }
+
+
+        return options;
     }
 
     @Override
