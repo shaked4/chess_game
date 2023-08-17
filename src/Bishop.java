@@ -1,4 +1,6 @@
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ public class Bishop extends Piece {
 
     @Override
     BufferedImage getImage() throws IOException {
-        throw new UnsupportedOperationException();
+        String path = color == COLOR.WHITE ? "img/white_bishop.png" : "";
+        return ImageIO.read(new File(path));
     }
 }
