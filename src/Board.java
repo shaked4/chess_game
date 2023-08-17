@@ -17,6 +17,8 @@ public class Board {
         pieces.add(new Knight(6, 5, Piece.COLOR.BLACK));
         pieces.add(new Pawn(3, 1, Piece.COLOR.BLACK));
         pieces.add(new Bishop(3,4, Piece.COLOR.WHITE));
+        pieces.add(new Rook(6,3, Piece.COLOR.WHITE));
+        pieces.add(new Pawn(5, 2, Piece.COLOR.BLACK));
     }
 
     void addCircle(Square sq) {

@@ -17,7 +17,7 @@ public class Bishop extends Piece {
 int x= square.x;
 int y= square.y;
         int[][] nextMove={{1,-1},{1,1},{-1,1},{-1,-1}};
-        for (int i=0; i<4;i++)
+        for (int i=0; i<nextMove.length;i++)
         {
             square.x=x;
             square.y=y;
@@ -25,6 +25,8 @@ int y= square.y;
             while (!isSquareTakenSameColor(nextSquare,t,color) && isInBoundaries(square, nextMove[i][0], nextMove[i][1]))
             {
                 options.add(nextSquare);
+                if (getPiece(nextSquare,t)!=null && getPiece(nextSquare,t).color!=this.color)
+                    break;
                 square.x= square.x+nextMove[i][0];
                 square.y=square.y+nextMove[i][1];
                 nextSquare=new Square(square.x+nextMove[i][0], square.y+nextMove[i][1] );
