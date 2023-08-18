@@ -19,20 +19,18 @@ public class Rook extends Piece {
         int x = square.x;
         int y = square.y;
         int[][] nextMove = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
-        for (int i=0; i<nextMove.length;i++)
-        {
-            square.x=x;
-            square.y=y;
-            Square nextSquare=new Square(square.x+nextMove[i][0], square.y+nextMove[i][1] );
-            while (!isSquareTakenSameColor(nextSquare,t,color) && isInBoundaries(square, nextMove[i][0], nextMove[i][1]))
-            {
+        for (int[] ints : nextMove) {
+            square.x = x;
+            square.y = y;
+            Square nextSquare = new Square(square.x + ints[0], square.y + ints[1]);
+            while (!isSquareTaken(nextSquare, t) && isInBoundaries(square, ints[0], ints[1])) {
                 options.add(nextSquare);
-                if (getPiece(nextSquare,t)!=null && getPiece(nextSquare,t).color!=this.color)
-                    break;
-                square.x= square.x+nextMove[i][0];
-                square.y=square.y+nextMove[i][1];
-                nextSquare=new Square(square.x+nextMove[i][0], square.y+nextMove[i][1] );
+                square.x = square.x + ints[0];
+                square.y = square.y + ints[1];
+                nextSquare = new Square(square.x + ints[0], square.y + ints[1]);
             }
+            if (getPiece(nextSquare, t) != null && getPiece(nextSquare, t).color != this.color)
+                options.add(nextSquare);
 
         }
         square.x = x;
