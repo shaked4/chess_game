@@ -15,6 +15,8 @@ public class Main {
     static Board board = new Board();
 
     public static void main(String[] args) {
+        ///ArrayList<Square> GreenSquares = new ArrayList<>();
+        //int LastPieceClicked;
         JFrame frame = new JFrame();
         frame.setBounds(10, 10, 800, 830);
         JPanel pn = new JPanel() {
@@ -61,11 +63,12 @@ public class Main {
             public void mouseClicked(MouseEvent e) {
                 // When mouse clicked, remove all previous circles from the board
                 board.removeAllCircles();
-
+                //int LastPieceClicked;
                 ArrayList<Square> possibleSquares = new ArrayList<>();
                 for (Piece piece :
                         board.pieces) {
                     if (piece.square.getX() == (e.getX() / 100) && piece.square.getY() == (e.getY() / 100)) {
+                        //LastPieceClicked= possibleSquares.indexOf(piece);
                         possibleSquares = piece.getPossibleSquares(board.pieces);
                         break;
                     }
@@ -75,7 +78,19 @@ public class Main {
                     for (Square square : possibleSquares) {
                         board.addCircle(square);
                     }
+                    //GreenSquares.addAll(possibleSquares);
                 }
+//                else
+//                {
+//                    for (Square square :
+//                            GreenSquares) {
+//                        if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
+//                            board.pieces.set(LastPieceClicked,)
+//                            break;
+//                        }
+//                    }
+//
+//                }
                 pn.repaint();
             }
 

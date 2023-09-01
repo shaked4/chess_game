@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Pawn extends Piece {
     boolean moved = false;
+    boolean isMovedTwoSquares=false;
 
     public Pawn(int x, int y, COLOR color) {
         super(TYPE.PAWN, x, y, color);
