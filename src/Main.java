@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -15,8 +16,7 @@ public class Main {
     static Board board = new Board();
 
     public static void main(String[] args) {
-        ///ArrayList<Square> GreenSquares = new ArrayList<>();
-        //int LastPieceClicked;
+        ArrayList<Square> GreenSquares = new ArrayList<>();
         JFrame frame = new JFrame();
         frame.setBounds(10, 10, 800, 830);
         JPanel pn = new JPanel() {
@@ -52,8 +52,7 @@ public class Main {
                 }
             }
         };
-        int[][] temp={{-1,-2},{1,-2},{2,-1}};
-        ;
+
         frame.add(pn);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -63,36 +62,48 @@ public class Main {
             public void mouseClicked(MouseEvent e) {
                 // When mouse clicked, remove all previous circles from the board
                 board.removeAllCircles();
-                //int LastPieceClicked;
                 ArrayList<Square> possibleSquares = new ArrayList<>();
                 for (Piece piece :
                         board.pieces) {
                     if (piece.square.getX() == (e.getX() / 100) && piece.square.getY() == (e.getY() / 100)) {
-                        //LastPieceClicked= possibleSquares.indexOf(piece);
+                        for (Square square :
+                                GreenSquares) {
+                            if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
+                                board.lastPieceClicked.setSquare(square.getX(), square.getY());
+                                break;
+                            }
+                        }
+                        board.lastPieceClicked = piece;
                         possibleSquares = piece.getPossibleSquares(board.pieces);
                         break;
+
                     }
                 }
 
-                if (!possibleSquares.isEmpty()) {
-                    for (Square square : possibleSquares) {
-                        board.addCircle(square);
+                    System.out.println(e.getX() + e.getY());
+                    if (!possibleSquares.isEmpty()) {
+                        for (Square square : possibleSquares) {
+                            board.addCircle(square);
+                        }
+                        GreenSquares.addAll(possibleSquares);
+                    } else {
+                        for (Square square :
+                                GreenSquares) {
+                            if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
+                                board.lastPieceClicked.setSquare(square.getX(), square.getY());
+
+                                for (Piece piece2 :
+                                        board.pieces) {
+                                    if (piece2.square.getX() == (e.getX() / 100) && piece2.square.getY() == (e.getY() / 100)) {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
                     }
-                    //GreenSquares.addAll(possibleSquares);
+                    pn.repaint();
                 }
-//                else
-//                {
-//                    for (Square square :
-//                            GreenSquares) {
-//                        if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
-//                            board.pieces.set(LastPieceClicked,)
-//                            break;
-//                        }
-//                    }
-//
-//                }
-                pn.repaint();
-            }
+
 
             @Override
             public void mousePressed(MouseEvent e) {

@@ -4,6 +4,8 @@ public class Board {
     ArrayList<Piece> pieces = new ArrayList<>();
     ArrayList<Square> circles = new ArrayList<>();
 
+    Piece lastPieceClicked;
+
     public Board() {
         init();
     }

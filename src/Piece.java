@@ -59,6 +59,10 @@ public abstract class Piece {
         }
         return null;
     }
+    public void setSquare(int x, int y)
+    {
+        this.square.SetXandY(x,y);
+    }
 
     public abstract ArrayList<Square> getPossibleSquares(List<Piece> t);
 
