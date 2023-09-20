@@ -16,7 +16,7 @@ public class Main {
     static Board board = new Board();
 
     public static void main(String[] args) {
-        ArrayList<Square> GreenSquares = new ArrayList<>();
+
         JFrame frame = new JFrame();
         frame.setBounds(10, 10, 800, 830);
         JPanel pn = new JPanel() {
@@ -46,7 +46,7 @@ public class Main {
                     throw new RuntimeException(e);
                 }
 
-                for (Square square : board.circles) {
+                for (Square square : board.greenCircles) {
                     g.setColor(new Color(130, 150, 105));
                     g.fillOval(square.getX() * 100 + 33, square.getY() * 100 + 33, 34, 34);
                 }
@@ -61,43 +61,45 @@ public class Main {
             @Override
             public void mouseClicked(MouseEvent e) {
                 // When mouse clicked, remove all previous circles from the board
-                board.removeAllCircles();
                 ArrayList<Square> possibleSquares = new ArrayList<>();
+                boolean t=true;
                 for (Piece piece :
                         board.pieces) {
                     if (piece.square.getX() == (e.getX() / 100) && piece.square.getY() == (e.getY() / 100)) {
                         for (Square square :
-                                GreenSquares) {
+                                board.greenCircles) {
                             if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
                                 board.lastPieceClicked.setSquare(square.getX(), square.getY());
+                                board.pieces.remove(piece);
+                                t=false;
                                 break;
                             }
                         }
-                        board.lastPieceClicked = piece;
-                        possibleSquares = piece.getPossibleSquares(board.pieces);
+                        if (t==true) {
+                            board.lastPieceClicked = piece;
+                            possibleSquares = piece.getPossibleSquares(board.pieces);
+                        }
+                        board.greenCircles.clear();
                         break;
 
                     }
                 }
 
-                    System.out.println(e.getX() + e.getY());
+//                    System.out.println(e.getX() + e.getY());
+
                     if (!possibleSquares.isEmpty()) {
-                        for (Square square : possibleSquares) {
-                            board.addCircle(square);
-                        }
-                        GreenSquares.addAll(possibleSquares);
-                    } else {
+                        board.greenCircles.addAll(possibleSquares);
+
+                    }
+
+
+                    else {
                         for (Square square :
-                                GreenSquares) {
+                                board.greenCircles) {
                             if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
                                 board.lastPieceClicked.setSquare(square.getX(), square.getY());
-
-                                for (Piece piece2 :
-                                        board.pieces) {
-                                    if (piece2.square.getX() == (e.getX() / 100) && piece2.square.getY() == (e.getY() / 100)) {
-                                        break;
-                                    }
-                                }
+                                board.greenCircles.clear();
+                                break;
                             }
                         }
                     }

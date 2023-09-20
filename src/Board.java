@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Board {
     ArrayList<Piece> pieces = new ArrayList<>();
-    ArrayList<Square> circles = new ArrayList<>();
+    ArrayList<Square> greenCircles = new ArrayList<>();
 
     Piece lastPieceClicked;
 
@@ -26,7 +26,7 @@ public class Board {
     }
 
     void addCircle(Square sq) {
-        circles.add(sq);
+        greenCircles.add(sq);
     }
 
 //    void setX(int index, int newX)
@@ -35,6 +35,6 @@ public class Board {
 //    }
 
     void removeAllCircles() {
-        circles.clear();
+        greenCircles.clear();
     }
 }
