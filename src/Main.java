@@ -75,7 +75,7 @@ public class Main {
                                 break;
                             }
                         }
-                        if (t==true) {
+                        if (t) {
                             board.lastPieceClicked = piece;
                             possibleSquares = piece.getPossibleSquares(board.pieces);
                         }
@@ -102,6 +102,16 @@ public class Main {
                                 break;
                             }
                         }
+                    }
+                    if (board.isInCheck(board.whiteKing))
+                    {
+                        System.out.println("the king is in risk!!!!!");
+                        System.out.println("");
+                        System.out.println("");
+                        System.out.println("");
+                        System.out.println("");
+                        System.out.println("");
+                        System.out.println("&");
                     }
                     pn.repaint();
                 }
