@@ -26,7 +26,7 @@ public class King extends Piece {
     @Override
     BufferedImage getImage() throws IOException {
 
-            String path = color == COLOR.WHITE ? "img/black_knight.png" : "img/black_knight.png";
+            String path = color == COLOR.WHITE ? "img/white_king.png" : "img/black_king.png";
             return ImageIO.read(new File(path));
 
     }

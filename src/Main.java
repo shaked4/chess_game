@@ -72,12 +72,20 @@ public class Main {
                                 board.lastPieceClicked.setSquare(square.getX(), square.getY());
                                 board.pieces.remove(piece);
                                 t=false;
+                                if (board.isInCheck(board.blackKing))
+                                {
+                                    System.out.println("the king is in risk!!!!!");
+                                    System.out.println("");
+                                    System.out.println("&");
+                                }
                                 break;
+
                             }
                         }
                         if (t) {
                             board.lastPieceClicked = piece;
                             possibleSquares = piece.getPossibleSquares(board.pieces);
+
                         }
                         board.greenCircles.clear();
                         break;
@@ -99,20 +107,17 @@ public class Main {
                             if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
                                 board.lastPieceClicked.setSquare(square.getX(), square.getY());
                                 board.greenCircles.clear();
+                                if (board.isInCheck(board.blackKing))
+                                {
+                                    System.out.println("the king is in risk!!!!!");
+                                    System.out.println("");
+                                    System.out.println("&");
+                                }
                                 break;
                             }
                         }
                     }
-                    if (board.isInCheck(board.whiteKing))
-                    {
-                        System.out.println("the king is in risk!!!!!");
-                        System.out.println("");
-                        System.out.println("");
-                        System.out.println("");
-                        System.out.println("");
-                        System.out.println("");
-                        System.out.println("&");
-                    }
+
                     pn.repaint();
                 }
 
