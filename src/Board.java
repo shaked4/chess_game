@@ -14,7 +14,7 @@ public class Board {
 
     private void init() {
         pieces.add(new Pawn(0, 6, Piece.COLOR.WHITE));
-        pieces.add(new Knight(1, 0, Piece.COLOR.BLACK));
+        pieces.add(new Knight(4, 1, Piece.COLOR.BLACK));
         pieces.add(new Pawn(0, 4, Piece.COLOR.WHITE));
         pieces.add(new Knight(1, 5, Piece.COLOR.BLACK));
         pieces.add(new Pawn(5, 6, Piece.COLOR.WHITE));
@@ -23,7 +23,7 @@ public class Board {
         pieces.add(new Bishop(3,4, Piece.COLOR.WHITE));
         pieces.add(new Rook(6,3, Piece.COLOR.WHITE));
         pieces.add(new Pawn(5, 2, Piece.COLOR.BLACK));
-        pieces.add(new Queen(4,3, Piece.COLOR.WHITE));
+        pieces.add(new Queen(3,2, Piece.COLOR.WHITE));
         blackKing=new King(5,0, Piece.COLOR.BLACK);
         pieces.add(blackKing);
 
@@ -47,8 +47,8 @@ public class Board {
         ArrayList<Square> possibleSquares;
         for (Piece piece: pieces)
         {
-            possibleSquares=piece.getPossibleSquares(pieces);
-            if (possibleSquares!=null && isTheKingThere(possibleSquares, king)) {
+                        possibleSquares=piece.getPossibleSquares(pieces);
+            if (possibleSquares!=null && piece.type!= Piece.TYPE.KING && isTheKingThere(possibleSquares, king)) {
                 return true;
             }
         }
@@ -65,6 +65,19 @@ public class Board {
         }
         return false;
     }
-
+    public Piece getKingDiffrentColor(Piece piece)
+    {
+        if (piece.color== Piece.COLOR.WHITE)
+            return blackKing;
+        else
+            return whiteKing;
+    }
+    public Piece getKingSameColor(Piece piece)
+    {
+        if (piece.color== Piece.COLOR.WHITE)
+            return whiteKing;
+        else
+            return blackKing;
+    }
 
 }

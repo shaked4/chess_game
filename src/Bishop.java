@@ -33,7 +33,8 @@ int y= square.y;
         }
         square.x=x;
         square.y=y;
-        return options;
+
+        return removeIfChecked(options);
     }
 
     @Override

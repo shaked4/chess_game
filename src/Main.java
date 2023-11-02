@@ -1,13 +1,9 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -72,7 +68,7 @@ public class Main {
                                 board.lastPieceClicked.setSquare(square.getX(), square.getY());
                                 board.pieces.remove(piece);
                                 t=false;
-                                if (board.isInCheck(board.blackKing))
+                                if (board.isInCheck(board.getKingDiffrentColor(board.lastPieceClicked)))
                                 {
                                     System.out.println("the king is in risk!!!!!");
                                     System.out.println("");
@@ -107,7 +103,7 @@ public class Main {
                             if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
                                 board.lastPieceClicked.setSquare(square.getX(), square.getY());
                                 board.greenCircles.clear();
-                                if (board.isInCheck(board.blackKing))
+                                if (board.isInCheck(board.getKingDiffrentColor(board.lastPieceClicked)))
                                 {
                                     System.out.println("the king is in risk!!!!!");
                                     System.out.println("");

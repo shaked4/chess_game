@@ -35,18 +35,20 @@ public abstract class Piece {
     public void onMoved() {
 
     }
-    public boolean isInBoundaries(Square square,int x,int y)
-    {
-        return square.getX()+x>-1 && square.getY()+y>-1 && square.getX()+x<8 && square.getY()+y<8;
+
+    public boolean isInBoundaries(Square square, int x, int y) {
+        return square.getX() + x > -1 && square.getY() + y > -1 && square.getX() + x < 8 && square.getY() + y < 8;
 
     }
+
     protected boolean isSquareTaken(Square square, List<Piece> pieces) {
         return getPiece(square, pieces) != null;
     }
 
-    protected boolean isSquareTakenSameColor(Square square, List<Piece> pieces,COLOR color) {
-        return getPiece(square, pieces) != null && getPiece(square,pieces).color==color;
+    protected boolean isSquareTakenSameColor(Square square, List<Piece> pieces, COLOR color) {
+        return getPiece(square, pieces) != null && getPiece(square, pieces).color == color;
     }
+
     protected Piece getPiece(Square square, List<Piece> pieces) {
         if (square == null) {
             return null;
@@ -59,12 +61,29 @@ public abstract class Piece {
         }
         return null;
     }
-    public void setSquare(int x, int y)
-    {
-        this.square.SetXandY(x,y);
+
+    public void setSquare(int x, int y) {
+        this.square.SetXandY(x, y);
     }
+
+
+
 
     public abstract ArrayList<Square> getPossibleSquares(List<Piece> t);
 
     abstract BufferedImage getImage() throws IOException;
+
+    public ArrayList<Square> removeIfChecked(ArrayList<Square> tempSquares) {
+        int x=this.square.x,y=this.square.y;
+        for (Square square : tempSquares) {
+            this.setSquare(square.x, square.y);
+            if (Main.board.isInCheck(Main.board.getKingSameColor(this)))
+                tempSquares.remove(square);
+        }
+        this.setSquare(x,y);
+        return tempSquares;
+    }
 }
+
+
+
