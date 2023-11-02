@@ -13,7 +13,7 @@ public class Queen extends Piece {
 
 
     @Override
-    public ArrayList<Square> getPossibleSquares(List<Piece> t) {
+    public ArrayList<Square> getPossibleSquares(Board board) {
 
 
         ArrayList<Square> options = new ArrayList<>();
@@ -26,13 +26,13 @@ public class Queen extends Piece {
             square.x = x;
             square.y = y;
             Square nextSquare = new Square(square.x + ints[0], square.y + ints[1]);
-            while (!isSquareTaken(nextSquare, t) && isInBoundaries(square, ints[0], ints[1])) {
+            while (!isSquareTaken(nextSquare, board.pieces) && isInBoundaries(square, ints[0], ints[1])) {
                 options.add(nextSquare);
                 square.x = square.x + ints[0];
                 square.y = square.y + ints[1];
                 nextSquare = new Square(square.x + ints[0], square.y + ints[1]);
             }
-            if (getPiece(nextSquare, t) != null && getPiece(nextSquare, t).color != this.color)
+            if (getPiece(nextSquare, board.pieces) != null && getPiece(nextSquare, board.pieces).color != this.color)
                 options.add(nextSquare);
 
         }

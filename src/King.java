@@ -19,7 +19,7 @@ public class King extends Piece {
     }
 
     @Override
-    public ArrayList<Square> getPossibleSquares(List<Piece> t) {
+    public ArrayList<Square> getPossibleSquares(Board board) {
 
         ArrayList<Square> options = new ArrayList<>();
 
@@ -31,10 +31,10 @@ public class King extends Piece {
             square.x = x;
             square.y = y;
             Square nextSquare = new Square(square.x + ints[0], square.y + ints[1]);
-            if (!isSquareTaken(nextSquare, t) && isInBoundaries(square, ints[0], ints[1])) {
+            if (!isSquareTaken(nextSquare, board.pieces) && isInBoundaries(square, ints[0], ints[1])) {
                 options.add(nextSquare);
             }
-            else if (getPiece(nextSquare, t) != null && getPiece(nextSquare, t).color != this.color)
+            else if (getPiece(nextSquare, board.pieces) != null && getPiece(nextSquare, board.pieces).color != this.color)
                 options.add(nextSquare);
 
         }

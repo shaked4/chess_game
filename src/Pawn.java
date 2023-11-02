@@ -50,25 +50,25 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public ArrayList<Square> getPossibleSquares(List<Piece> pieces) {
+    public ArrayList<Square> getPossibleSquares(Board board) {
         ArrayList<Square> options = new ArrayList<>();
 
-        if (!isSquareTaken(forwardSquare(), pieces)) {
+        if (!isSquareTaken(forwardSquare(), board.pieces)) {
             options.add(forwardSquare());
         }
 
-        if (!moved && !isSquareTaken(forwardSquare(), pieces) && !isSquareTaken(forward2Squares(), pieces)) {
+        if (!moved && !isSquareTaken(forwardSquare(), board.pieces) && !isSquareTaken(forward2Squares(), board.pieces)) {
             options.add(forward2Squares());
         }
 
         Square diagonal = getDiagonal(true);
-        Piece diagonalPiece = getPiece(diagonal, pieces);
+        Piece diagonalPiece = getPiece(diagonal, board.pieces);
         if (diagonal != null && diagonalPiece != null && diagonalPiece.color != this.color) {
             options.add(diagonal);
         }
 
         diagonal = getDiagonal(false);
-        diagonalPiece = getPiece(diagonal, pieces);
+        diagonalPiece = getPiece(diagonal, board.pieces);
         if (diagonal != null && diagonalPiece != null && diagonalPiece.color != this.color) {
             options.add(diagonal);
         }

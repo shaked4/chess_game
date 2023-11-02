@@ -84,7 +84,7 @@ public class Main {
                         }
                         if (t) {
                             board.lastPieceClicked = piece;
-                            possibleSquares = piece.getPossibleSquares(board.pieces);
+                            possibleSquares = piece.getPossibleSquares(board);
 
                         }
                         board.greenCircles.clear();

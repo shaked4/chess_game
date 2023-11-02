@@ -64,7 +64,7 @@ public abstract class Piece {
         this.square.SetXandY(x,y);
     }
 
-    public abstract ArrayList<Square> getPossibleSquares(List<Piece> t);
+    public abstract ArrayList<Square> getPossibleSquares(Board board);
 
     abstract BufferedImage getImage() throws IOException;
 }

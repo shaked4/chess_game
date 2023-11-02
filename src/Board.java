@@ -47,7 +47,7 @@ public class Board {
         ArrayList<Square> possibleSquares;
         for (Piece piece: pieces)
         {
-            possibleSquares=piece.getPossibleSquares(pieces);
+            possibleSquares=piece.getPossibleSquares(this);
             if (possibleSquares!=null && isTheKingThere(possibleSquares, king)) {
                 return true;
             }
