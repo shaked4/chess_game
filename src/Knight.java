@@ -26,7 +26,7 @@ public class Knight extends Piece {
         }
 
 
-        return removeIfChecked(options);
+        return options;
     }
 
     @Override
