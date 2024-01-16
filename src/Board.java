@@ -47,18 +47,39 @@ public class Board {
         ArrayList<Square> possibleSquares;
         for (Piece piece: pieces)
         {
-            possibleSquares=piece.getPossibleSquares(this);
-            if (possibleSquares!=null && isTheKingThere(possibleSquares, king)) {
-                return true;
+            if (piece!=king) {
+                possibleSquares = piece.getPossibleSquares(this);
+                if (possibleSquares != null && isTheKingThere(possibleSquares, king)) {
+                    return true;
+                }
             }
         }
         return false;
+    }
+    ///function if we want to check if there is check if the king is in diffrent square so we get the king and the square and we change the square of the king
+    ///we have to make sure before we use the function that the square is empty
+    boolean isInCheckDiffPosition(Piece king,int x, int y)
+
+    {
+        king.setSquare(king.square.x+x,king.square.y+y);
+        ArrayList<Square> possibleSquares;
+        for (Piece piece: pieces)
+        {
+            if (piece!=king) {
+                possibleSquares = piece.getPossibleSquares(this);
+                if (possibleSquares != null && isTheKingThere(possibleSquares, king)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+
     }
     boolean isTheKingThere(ArrayList<Square> t, Piece king)
     {
         for (Square square: t)
         {
-            if(square.getX()==king.square.getX() && square.getY()==king.square.getY())
+             if(square.getX()==king.square.getX() && square.getY()==king.square.getY())
             {
                 return true;
             }
