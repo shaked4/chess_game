@@ -12,7 +12,7 @@ public class Bishop extends Piece {
 
 
     @Override
-    public ArrayList<Square> getPossibleSquares( Board board) {
+    public ArrayList<Square> getPossibleSquaresForPiece(Board board) {
         ArrayList<Square> options = new ArrayList<>();
 int x= square.x;
 int y= square.y;
@@ -21,7 +21,33 @@ int y= square.y;
             square.x = x;
             square.y = y;
             Square nextSquare = new Square(square.x + ints[0], square.y + ints[1]);
-            while (!isSquareTaken(nextSquare, board.pieces) && isInBoundaries(square, ints[0], ints[1])) {
+            //!board.isInCheckDiffPosition(this,ints[0],ints[1] )
+            while (!isSquareTaken(nextSquare, board.pieces) && isInBoundaries(square, ints[0], ints[1]) ) {
+                options.add(nextSquare);
+                square.x = square.x + ints[0];
+                square.y = square.y + ints[1];
+                nextSquare = new Square(square.x + ints[0], square.y + ints[1]);
+            }
+            if (getPiece(nextSquare, board.pieces) != null && getPiece(nextSquare, board.pieces).color != this.color)
+                options.add(nextSquare);
+
+        }
+        square.x=x;
+        square.y=y;
+        return options;
+    }
+
+    @Override
+    public ArrayList<Square> getStandingPossibleSquares(Board board) {
+        ArrayList<Square> options = new ArrayList<>();
+        int x= square.x;
+        int y= square.y;
+        int[][] nextMove={{1,-1},{1,1},{-1,1},{-1,-1}};
+        for (int[] ints : nextMove) {
+            square.x = x;
+            square.y = y;
+            Square nextSquare = new Square(square.x + ints[0], square.y + ints[1]);
+            while (!isSquareTaken(nextSquare, board.pieces) && isInBoundaries(square, ints[0], ints[1]) ) {
                 options.add(nextSquare);
                 square.x = square.x + ints[0];
                 square.y = square.y + ints[1];

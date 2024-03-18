@@ -32,7 +32,14 @@ public abstract class Piece {
         this.color = color;
     }
 
-    public void onMoved() {
+//    public void onMoved() {
+//        Pawn.
+//
+//    }
+    protected void onMoved(){
+
+
+
 
     }
     public boolean isInBoundaries(Square square,int x,int y)
@@ -64,7 +71,15 @@ public abstract class Piece {
         this.square.SetXandY(x,y);
     }
 
-    public abstract ArrayList<Square> getPossibleSquares(Board board);
+    public abstract ArrayList<Square> getPossibleSquaresForPiece(Board board);
+
+    public ArrayList<Square> getPossibleSquares(Board board) {
+        ArrayList<Square> squares=getPossibleSquaresForPiece(board);
+        squares.removeIf(square -> board.isInCheckDiffPosition(this, square.x, square.y));
+        return squares;
+    }
+
+    public abstract ArrayList<Square> getStandingPossibleSquares(Board board);
 
     abstract BufferedImage getImage() throws IOException;
 }

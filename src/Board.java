@@ -26,6 +26,8 @@ public class Board {
         pieces.add(new Queen(4,3, Piece.COLOR.WHITE));
         blackKing=new King(5,0, Piece.COLOR.BLACK);
         pieces.add(blackKing);
+        whiteKing=new King(2,6, Piece.COLOR.WHITE);
+        pieces.add(whiteKing);
 
     }
 
@@ -48,7 +50,7 @@ public class Board {
         for (Piece piece: pieces)
         {
             if (piece!=king) {
-                possibleSquares = piece.getPossibleSquares(this);
+                possibleSquares = piece.getPossibleSquaresForPiece(this);
                 if (possibleSquares != null && isTheKingThere(possibleSquares, king)) {
                     return true;
                 }
@@ -58,21 +60,15 @@ public class Board {
     }
     ///function if we want to check if there is check if the king is in diffrent square so we get the king and the square and we change the square of the king
     ///we have to make sure before we use the function that the square is empty
-    boolean isInCheckDiffPosition(Piece king,int x, int y)
+    boolean isInCheckDiffPosition(Piece piece,int x, int y)
 
     {
-        king.setSquare(king.square.x+x,king.square.y+y);
-        ArrayList<Square> possibleSquares;
-        for (Piece piece: pieces)
-        {
-            if (piece!=king) {
-                possibleSquares = piece.getPossibleSquares(this);
-                if (possibleSquares != null && isTheKingThere(possibleSquares, king)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        int prevX=piece.square.x,prevY=piece.square.y;
+        piece.setSquare(x,y);
+
+        boolean result= isInCheck(piece.color== Piece.COLOR.BLACK? blackKing : whiteKing);
+        piece.setSquare(prevX,prevY);
+        return result;
 
     }
     boolean isTheKingThere(ArrayList<Square> t, Piece king)

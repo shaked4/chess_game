@@ -50,7 +50,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public ArrayList<Square> getPossibleSquares(Board board) {
+    public ArrayList<Square> getPossibleSquaresForPiece(Board board) {
         ArrayList<Square> options = new ArrayList<>();
 
         if (!isSquareTaken(forwardSquare(), board.pieces)) {
@@ -75,6 +75,38 @@ public class Pawn extends Piece {
 
         return options;
     }
+
+    @Override
+    public ArrayList<Square> getStandingPossibleSquares(Board board) {
+        ArrayList<Square> options = new ArrayList<>();
+
+        if (!isSquareTaken(forwardSquare(), board.pieces)) {
+            options.add(forwardSquare());
+        }
+
+        if (!moved && !isSquareTaken(forwardSquare(), board.pieces) && !isSquareTaken(forward2Squares(), board.pieces)) {
+            options.add(forward2Squares());
+        }
+
+        Square diagonal = getDiagonal(true);
+        Piece diagonalPiece = getPiece(diagonal, board.pieces);
+        if (diagonal != null && diagonalPiece != null && diagonalPiece.color != this.color) {
+            options.add(diagonal);
+        }
+
+        diagonal = getDiagonal(false);
+        diagonalPiece = getPiece(diagonal, board.pieces);
+        if (diagonal != null && diagonalPiece != null && diagonalPiece.color != this.color) {
+            options.add(diagonal);
+        }
+
+        return options;
+    }
+
+    public void setMoved() {
+        this.moved = true;
+    }
+
 
     @Override
     BufferedImage getImage() throws IOException {

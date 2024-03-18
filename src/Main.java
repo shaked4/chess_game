@@ -1,13 +1,9 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -101,18 +97,22 @@ public class Main {
                     }
 
 
-                    else {
+                    else {   
                         for (Square square :
                                 board.greenCircles) {
                             if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
                                 board.lastPieceClicked.setSquare(square.getX(), square.getY());
                                 board.greenCircles.clear();
+                                //check if its pawn and if so, check if he moved and if he didnt so mark 'moved' so he cant do 2 steps anymore
+//                                if(board.lastPieceClicked.type== Piece.TYPE.PAWN)
+//                                    piece  tempPawn = Pawn  board.lastPieceClicked;
                                 if (board.isInCheck(board.blackKing))
                                 {
                                     System.out.println("the king is in risk!!!!!");
                                     System.out.println("");
                                     System.out.println("&");
                                 }
+
                                 break;
                             }
                         }
