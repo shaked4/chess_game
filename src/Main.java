@@ -58,7 +58,7 @@ public class Main {
             public void mouseClicked(MouseEvent e) {
                 // When mouse clicked, remove all previous circles from the board
                 ArrayList<Square> possibleSquares = new ArrayList<>();
-                boolean t=true;
+                boolean t = true;
                 for (Piece piece :
                         board.pieces) {
                     if (piece.square.getX() == (e.getX() / 100) && piece.square.getY() == (e.getY() / 100)) {
@@ -67,11 +67,10 @@ public class Main {
                             if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
                                 board.lastPieceClicked.setSquare(square.getX(), square.getY());
                                 board.pieces.remove(piece);
-                                t=false;
-                                if (board.isInCheck(board.blackKing))
-                                {
+                                t = false;
+                                if (board.isInCheck(board.blackKing)) {
                                     System.out.println("the king is in risk!!!!!");
-                                    System.out.println("");
+                                    System.out.println();
                                     System.out.println("&");
                                 }
                                 break;
@@ -91,35 +90,31 @@ public class Main {
 
 //                    System.out.println(e.getX() + e.getY());
 
-                    if (!possibleSquares.isEmpty()) {
-                        board.greenCircles.addAll(possibleSquares);
+                if (!possibleSquares.isEmpty()) {
+                    board.greenCircles.addAll(possibleSquares);
 
-                    }
-
-
-                    else {   
-                        for (Square square :
-                                board.greenCircles) {
-                            if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
-                                board.lastPieceClicked.setSquare(square.getX(), square.getY());
-                                board.greenCircles.clear();
-                                //check if its pawn and if so, check if he moved and if he didnt so mark 'moved' so he cant do 2 steps anymore
+                } else {
+                    for (Square square :
+                            board.greenCircles) {
+                        if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
+                            board.lastPieceClicked.setSquare(square.getX(), square.getY());
+                            board.greenCircles.clear();
+                            //check if its pawn and if so, check if he moved and if he didnt so mark 'moved' so he cant do 2 steps anymore
 //                                if(board.lastPieceClicked.type== Piece.TYPE.PAWN)
 //                                    piece  tempPawn = Pawn  board.lastPieceClicked;
-                                if (board.isInCheck(board.blackKing))
-                                {
-                                    System.out.println("the king is in risk!!!!!");
-                                    System.out.println("");
-                                    System.out.println("&");
-                                }
-
-                                break;
+                            if (board.isInCheck(board.blackKing)) {
+                                System.out.println("the king is in risk!!!!!");
+                                System.out.println();
+                                System.out.println("&");
                             }
+
+                            break;
                         }
                     }
-
-                    pn.repaint();
                 }
+
+                pn.repaint();
+            }
 
 
             @Override

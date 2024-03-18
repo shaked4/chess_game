@@ -3,7 +3,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Queen extends Piece {
 
@@ -21,7 +20,7 @@ public class Queen extends Piece {
 
         int x = square.x;
         int y = square.y;
-        int[][] nextMove = {{1, 0}, {0, 1}, {-1, 0}, {0, -1},{1,-1},{1,1},{-1,1},{-1,-1}};
+        int[][] nextMove = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, -1}, {1, 1}, {-1, 1}, {-1, -1}};
         for (int[] ints : nextMove) {
             square.x = x;
             square.y = y;
@@ -49,7 +48,7 @@ public class Queen extends Piece {
 
         int x = square.x;
         int y = square.y;
-        int[][] nextMove = {{1, 0}, {0, 1}, {-1, 0}, {0, -1},{1,-1},{1,1},{-1,1},{-1,-1}};
+        int[][] nextMove = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, -1}, {1, 1}, {-1, 1}, {-1, -1}};
         for (int[] ints : nextMove) {
             square.x = x;
             square.y = y;

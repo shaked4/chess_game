@@ -3,12 +3,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Pawn extends Piece {
     boolean moved = false;
-    boolean isMovedTwoSquares=false;
+    boolean isMovedTwoSquares = false;
 
     public Pawn(int x, int y, COLOR color) {
         super(TYPE.PAWN, x, y, color);
