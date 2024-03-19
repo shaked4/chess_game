@@ -79,4 +79,9 @@ public abstract class Piece {
         BISHOP,
         ROOK
     }
+    public COLOR getColor()
+    {
+        return this.color == COLOR.WHITE? COLOR.WHITE :  COLOR.BLACK;
+
+    }
 }

@@ -30,7 +30,7 @@ public class King extends Piece {
             square.x = x;
             square.y = y;
             Square nextSquare = new Square(square.x + ints[0], square.y + ints[1]);
-            if ((isInBoundaries(square, ints[0], ints[1])) && (!isSquareTaken(nextSquare, board.pieces)) || ((isSquareTaken(nextSquare, board.pieces)) && (getPiece(nextSquare, board.pieces).color != this.color) && (!board.isInCheck(this)))) {
+            if ((isInBoundaries(square, ints[0], ints[1])) && (!isSquareTaken(nextSquare, board.pieces)) || ((isSquareTaken(nextSquare, board.pieces)) && (getPiece(nextSquare, board.pieces).color != this.color) && !board.isInCheckDiffPosition(this,nextSquare.x,nextSquare.y))) {
                 options.add(nextSquare);
             }
             square.x = x;

@@ -15,7 +15,7 @@ public class Board {
         pieces.add(new Knight(1, 0, Piece.COLOR.BLACK));
         pieces.add(new Pawn(0, 4, Piece.COLOR.WHITE));
         pieces.add(new Knight(1, 5, Piece.COLOR.BLACK));
-        pieces.add(new Pawn(5, 6, Piece.COLOR.WHITE));
+        pieces.add(new Pawn(4, 4, Piece.COLOR.WHITE));
         pieces.add(new Knight(6, 5, Piece.COLOR.BLACK));
         pieces.add(new Pawn(3, 1, Piece.COLOR.BLACK));
         pieces.add(new Bishop(3, 4, Piece.COLOR.WHITE));
@@ -61,8 +61,8 @@ public class Board {
         return result;
     }
 
-    boolean isTheKingThere(ArrayList<Square> t, Piece king) {
-        for (Square square : t) {
+    boolean isTheKingThere(ArrayList<Square> possibleSquares, Piece king) {
+        for (Square square : possibleSquares) {
             if (square.getX() == king.square.getX() && square.getY() == king.square.getY()) {
                 return true;
             }
