@@ -26,6 +26,7 @@ public class Board {
         pieces.add(blackKing);
         whiteKing = new King(2, 6, Piece.COLOR.WHITE);
         pieces.add(whiteKing);
+        pieces.add(new Bishop(6,6,Piece.COLOR.BLACK));
     }
 
     void addCircle(Square sq) {

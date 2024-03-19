@@ -62,7 +62,7 @@ public class Bishop extends Piece {
 
     @Override
     BufferedImage getImage() throws IOException {
-        String path = color == COLOR.WHITE ? "img/white_bishop.png" : "";
+        String path = color == COLOR.WHITE ? "img/white_bishop.png" : "img/blackBishop.png";
         return ImageIO.read(new File(path));
     }
 }
