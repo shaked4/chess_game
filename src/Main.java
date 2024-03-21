@@ -26,7 +26,7 @@ public class Main {
                         } else {
                             g.setColor(new Color(181, 136, 98));
                         }
-                        g.fillRect(x * 80, y * 80, 80, 80);
+                        g.fillRect(x * 100, y * 100, 100, 100);
                         white = !white;
                     }
                     white = !white;
@@ -36,7 +36,7 @@ public class Main {
                         if (piece == null) {
                             continue;
                         }
-                        g.drawImage(piece.getImage(), piece.square.getX() * 80, piece.square.getY() * 80, null);
+                        g.drawImage(piece.getImage(), piece.square.getX() * 100, piece.square.getY() * 100, null);
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -44,7 +44,7 @@ public class Main {
 
                 for (Square square : board.greenCircles) {
                     g.setColor(new Color(130, 150, 105));
-                    g.fillOval(square.getX() * 80 + 33, square.getY() * 80 + 33, 34, 34);
+                    g.fillOval(square.getX() * 100 + 33, square.getY() * 100 + 33, 34, 34);
                 }
             }
         };
@@ -63,10 +63,10 @@ public class Main {
                 boolean t = true;
                 for (Piece piece :
                         board.pieces) {
-                    if (( (board.lastPieceClicked==null) || (piece.color!=board.lastPieceClickedColor ) )  &&  piece.square.getX() == (e.getX() / 80) && piece.square.getY() == (e.getY() / 80)) {
+                    if (( (board.lastPieceClicked==null) || (piece.color!=board.lastPieceClickedColor ) )  &&  piece.square.getX() == (e.getX() / 100) && piece.square.getY() == (e.getY() / 100)) {
                         for (Square square :
                                 board.greenCircles) {
-                            if (square.getX() == (e.getX() / 80) && square.getY() == (e.getY() / 80)) {
+                            if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
                                 board.lastPieceClicked.setSquare(square.getX(), square.getY());
                                 board.pieces.remove(piece);
                                 t = false;
@@ -107,7 +107,7 @@ public class Main {
                 else {
                     for (Square square :
                             board.greenCircles) {
-                        if (square.getX() == (e.getX() / 80) && square.getY() == (e.getY() / 80)) {
+                        if (square.getX() == (e.getX() / 100) && square.getY() == (e.getY() / 100)) {
                             if (board.isThereAnOppositePiece(square, board.lastPieceClicked))
                                 board.pieces.remove(board.getThisPiece(square));
 

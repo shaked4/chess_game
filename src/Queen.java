@@ -37,7 +37,7 @@ public class Queen extends Piece {
         }
         square.x = x;
         square.y = y;
-                                                     
+
         return options;
     }
 
