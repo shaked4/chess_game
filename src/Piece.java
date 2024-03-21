@@ -9,20 +9,21 @@ public abstract class Piece {
     Square square;
     boolean alive = true;
     COLOR color;
+
+    boolean moved=false;
     public Piece(TYPE type, int x, int y, COLOR color) {
         this.type = type;
         this.square = new Square(x, y);
         this.color = color;
-    }
-
-    //    public void onMoved() {
-//        Pawn.
-//
-//    }
-    protected void onMoved() {
-
 
     }
+
+    public void onMoved()
+    {
+        this.moved=true;
+
+    }
+
 
     public boolean isInBoundaries(Square square, int x, int y) {
         return square.getX() + x > -1 && square.getY() + y > -1 && square.getX() + x < 8 && square.getY() + y < 8;
@@ -58,11 +59,11 @@ public abstract class Piece {
 
     public ArrayList<Square> getPossibleSquares(Board board) {
         ArrayList<Square> squares = getPossibleSquaresForPiece(board);
+
+
         squares.removeIf(square -> board.isInCheckDiffPosition(this, square.x, square.y));
         return squares;
     }
-
-    public abstract ArrayList<Square> getStandingPossibleSquares(Board board);
 
     abstract BufferedImage getImage() throws IOException;
 
@@ -83,5 +84,9 @@ public abstract class Piece {
     {
         return this.color == COLOR.WHITE? COLOR.WHITE :  COLOR.BLACK;
 
+    }
+    public void setAlive(boolean alive)
+    {
+        this.alive=alive;
     }
 }
