@@ -55,7 +55,7 @@ public class Main {
 
         pn.addMouseListener(new MouseListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
 
                 // When mouse clicked, remove all previous circles from the board
                 //the first case is that the player ate a piece which means the square he clicked contains both a piece and green circle
@@ -143,7 +143,7 @@ public class Main {
 
 
             @Override
-            public void mousePressed(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) {
             }
 
             @Override
