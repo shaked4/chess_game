@@ -40,7 +40,7 @@ public class Rook extends Piece {
 
     @Override
     BufferedImage getImage() throws IOException {
-        String path = color == COLOR.WHITE ? "img/white_rook.png" : "";
+        String path = color == COLOR.WHITE ? "img/white_rook.png" : "img/blackRook.png";
         return ImageIO.read(new File(path));
     }
 }

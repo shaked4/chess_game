@@ -30,7 +30,7 @@ public class Knight extends Piece {
 
     @Override
     BufferedImage getImage() throws IOException {
-        String path = color == COLOR.WHITE ? "" : "img/black_knight.png";
+        String path = color == COLOR.WHITE ? "img/whiteknight.png" : "img/black_knight.png";
         return ImageIO.read(new File(path));
     }
 }

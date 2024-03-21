@@ -14,21 +14,44 @@ public class Board {
 
     private void init() {
         pieces.add(new Pawn(0, 6, Piece.COLOR.WHITE));
-        pieces.add(new Knight(1, 0, Piece.COLOR.BLACK));
-        pieces.add(new Pawn(0, 4, Piece.COLOR.WHITE));
-        pieces.add(new Knight(1, 5, Piece.COLOR.BLACK));
-        pieces.add(new Pawn(4, 4, Piece.COLOR.WHITE));
-        pieces.add(new Knight(6, 5, Piece.COLOR.BLACK));
-        pieces.add(new Pawn(3, 1, Piece.COLOR.BLACK));
-        pieces.add(new Bishop(3, 4, Piece.COLOR.WHITE));
-        pieces.add(new Rook(6, 3, Piece.COLOR.WHITE));
-        pieces.add(new Pawn(5, 2, Piece.COLOR.BLACK));
-        pieces.add(new Queen(4, 3, Piece.COLOR.WHITE));
-        blackKing = new King(5, 0, Piece.COLOR.BLACK);
-        pieces.add(blackKing);
-        whiteKing = new King(2, 6, Piece.COLOR.WHITE);
+        pieces.add(new Pawn(1, 6, Piece.COLOR.WHITE));
+        pieces.add(new Pawn(2, 6, Piece.COLOR.WHITE));
+        pieces.add(new Pawn(3, 6, Piece.COLOR.WHITE));
+        pieces.add(new Pawn(4, 6, Piece.COLOR.WHITE));
+        pieces.add(new Pawn(5, 6, Piece.COLOR.WHITE));
+        pieces.add(new Pawn(6, 6, Piece.COLOR.WHITE));
+        pieces.add(new Pawn(7, 6, Piece.COLOR.WHITE));
+        pieces.add(new Bishop(2, 7, Piece.COLOR.WHITE));
+        pieces.add(new Bishop(5, 7, Piece.COLOR.WHITE));
+        pieces.add(new Rook(0, 7, Piece.COLOR.WHITE));
+        pieces.add(new Rook(7, 7, Piece.COLOR.WHITE));
+        pieces.add(new Queen(4, 7, Piece.COLOR.WHITE));
+        pieces.add(new Knight(1, 7, Piece.COLOR.WHITE));
+        pieces.add(new Knight(6, 7, Piece.COLOR.WHITE));
+        whiteKing = new King(3, 7, Piece.COLOR.WHITE);
         pieces.add(whiteKing);
-        pieces.add(new Bishop(6, 6, Piece.COLOR.BLACK));
+
+//BLACK
+        pieces.add(new Pawn(0, 1, Piece.COLOR.BLACK));
+        pieces.add(new Pawn(1, 1, Piece.COLOR.BLACK));
+        pieces.add(new Pawn(2, 1, Piece.COLOR.BLACK));
+        pieces.add(new Pawn(3, 1, Piece.COLOR.BLACK));
+        pieces.add(new Pawn(4, 1, Piece.COLOR.BLACK));
+        pieces.add(new Pawn(5, 1, Piece.COLOR.BLACK));
+        pieces.add(new Pawn(6, 1, Piece.COLOR.BLACK));
+        pieces.add(new Pawn(7, 1, Piece.COLOR.BLACK));
+        pieces.add(new Bishop(2, 0, Piece.COLOR.BLACK));
+        pieces.add(new Bishop(5, 0, Piece.COLOR.BLACK));
+        pieces.add(new Rook(0, 0, Piece.COLOR.BLACK));
+        pieces.add(new Rook(7, 0, Piece.COLOR.BLACK));
+        pieces.add(new Queen(3, 0, Piece.COLOR.BLACK));
+        pieces.add(new Knight(1, 0, Piece.COLOR.BLACK));
+        pieces.add(new Knight(6, 0, Piece.COLOR.BLACK));
+
+        blackKing = new King(4, 0, Piece.COLOR.BLACK);
+
+        pieces.add(blackKing);
+
 //        pieces.add(new Queen(1,1,Piece.COLOR.BLACK));
     }
 
