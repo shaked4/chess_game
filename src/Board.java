@@ -25,10 +25,10 @@ public class Board {
         pieces.add(new Bishop(5, 7, Piece.COLOR.WHITE));
         pieces.add(new Rook(0, 7, Piece.COLOR.WHITE));
         pieces.add(new Rook(7, 7, Piece.COLOR.WHITE));
-        pieces.add(new Queen(4, 7, Piece.COLOR.WHITE));
+        pieces.add(new Queen(3, 7, Piece.COLOR.WHITE));
         pieces.add(new Knight(1, 7, Piece.COLOR.WHITE));
         pieces.add(new Knight(6, 7, Piece.COLOR.WHITE));
-        whiteKing = new King(3, 7, Piece.COLOR.WHITE);
+        whiteKing = new King(4, 7, Piece.COLOR.WHITE);
         pieces.add(whiteKing);
 
 //BLACK
